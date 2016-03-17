@@ -1,3 +1,69 @@
 body {
-	background: radial-gradient(circle, #fff 20%, #ccc)
+	background: radial-gradient(circle, #cc99ff 30%, #5900b3)
+}
+
+#calculator {
+	max-width: 400px;
+	padding: 20px;
+	margin-top: 100px;
+	background-color: #9dd2ea;
+	background: linear-gradient(#9dd2ea, #8bceec);
+	border-radius: 5px;
+	box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0,0,0,.2)
+}
+
+.screen {
+	width: 100%;
+	padding: 0 10px;
+	background: rgba(0,0,0,.2);
+	border-radius: 3px;
+	box-shadow: inset 0px 4px rgba(0,0,0,.2);
+	height: 32px;
+}
+
+
+
+.number, .operator {
+	height: 36px;
+	width: 66px;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0px 4px rgba(0,0,0,.2);
+	margin: 0 7px 11px 0;
+	color:#888;
+	user-select: none;
+
+}
+
+.operator {
+	background-color: orange;
+	color: white;
+}
+
+.equ {
+	background-color: #000;
+	color: white;
+}
+
+.top-row {
+	margin-top: 20px;
+}
+
+.clear {
+	background: #ff9fa8;
+	box-shadow: 0px 2px #ff7c87;
+	color: white;
+	width: 50px;
+}
+
+#meaning {
+	position: absolute;
+	left: -1000px;
+	top: 50%;
+}
+
+#meaning.move{
+	left: 2000px;
+	transition: all 5s ease;
+	
 }
