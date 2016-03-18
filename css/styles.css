@@ -19,11 +19,12 @@ body {
 	border-radius: 3px;
 	box-shadow: inset 0px 4px rgba(0,0,0,.2);
 	height: 32px;
+
 }
 
 
 
-.number, .operator {
+.number, .operator, .delete, .decimal{
 	height: 36px;
 	width: 66px;
 	background: white;
@@ -35,12 +36,12 @@ body {
 
 }
 
-.operator {
+.operator, .decimal {
 	background-color: orange;
 	color: white;
 }
 
-.equ {
+.btn-equ, .delete {
 	background-color: #000;
 	color: white;
 }
@@ -59,11 +60,86 @@ body {
 #meaning {
 	position: absolute;
 	left: -1000px;
-	top: 50%;
+	top: 2%;
 }
 
 #meaning.move{
 	left: 2000px;
-	transition: all 5s ease;
+	transition: all 7s ease;
 	
+}
+
+#evil {
+	position: absolute;
+	left: -1000px;
+	top: 50%;
+}
+
+#evil.move-two {
+	left: 1000px; 
+	transform: scale(5,5) rotate(1440deg);
+	transition: all 4s ease;
+}
+
+#four-twenty {
+	position: absolute;
+	left: -1000px;
+	top: 20%;
+}
+
+
+#four-twenty.move-three{
+	left: 700px; 
+	transform: scale(1.5,1.5);
+	transition: all 2s ease;
+}
+
+#wizard {
+	position: absolute;
+	left: -1000px;
+	top: 20%;
+}
+
+#wizard.move-four {
+	left: 700px; 
+	transform: scale(1.5,1.5) rotate(720deg);
+	transition: all 2s ease;
+}
+
+.row.move-five {
+	transform: rotate(3600deg);
+	transition: all 4s ease;
+}
+
+#thug {
+	position: absolute;
+	left: -1000px;
+	top: 20%;
+}
+
+#thug.move-six {
+	left: 700px; 
+	transform: scale(1.5,1.5) rotate(360deg);
+	transition: all 2s ease-in-out;
+}
+
+
+
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #000000;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #000000;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #000000;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #000000;
+}
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    #000000;
 }

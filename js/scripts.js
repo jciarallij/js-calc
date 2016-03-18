@@ -2,23 +2,42 @@ $(document).ready(function(){
 	
 	document.onkeyup = keyCheck;
 
-	$('.operator, .number').click(function(){
-		if ($(this).hasClass('equal')){
-			// alert("You hit the equal sign!");
-			doIt();
-	} else if ($(this).hasClass('clear')){
-			$('.screen').val('');
-	} else
+
+	$('button').click(function(){
+		console.log(keyCheck);
 		var currScreenVal = $('.screen').val();
-		$('.screen').val(currScreenVal + $(this).val());
-	})
+		if($(this).hasClass('equal')){
+			doIt();
+		}else if($(this).hasClass('delete')){
+			deleteIt();
+		}else if($(this).hasClass('clear')){
+			$('.screen').val('');
+		}else if($(this).hasClass('percentage')){
+			$('.screen').val('0.' + currScreenVal);
+		}else if($(this).hasClass('decimal') && currScreenVal == 0){
+			$('.screen').val('0.');
+		}else{
+			$('.screen').val(currScreenVal + $(this).val());
+		};
+	});
+	
+	function deleteIt(){
+		var currScreenVal = $('.screen').val();
+		var currScreenValString = currScreenVal.toString();
+		var slicedString = currScreenValString.slice(0, currScreenValString.length - 1);
+		currScreenVal = Number(slicedString);
+		$('.screen').val(currScreenVal);
+		if(currScreenVal == 0){
+			$('.screen').val('');
+		};
+	};
 
 
 
 	function keyCheck(){
 		var keyID = event.keyCode;
-		console.log(keyID);
 		var currScreenVal = $('.screen').val();
+		console.log(keyID);
 		switch(keyID){
 			case 48:
 			$('.screen').val(currScreenVal + 0);
@@ -59,24 +78,33 @@ $(document).ready(function(){
 			case 189:
 			$('.screen').val(currScreenVal + '-');
 				break;
+			case 107:
+			$('.screen').val(CurrScreenVal + '+');
+				break;
 			case 27:
 			$('.screen').val('');
+			$('#evil').removeClass('move-two');
+			$('#meaning').removeClass('move');
+			$('#four-twenty').removeClass('move-three');
+			$('#wizard').removeClass('move-four');
+			$('.row').removeClass('move-five');
+			$('#thug').removeClass('move-six');
+				break;
+			case 37:
+				deleteIt();
 				break;
 			case 187:
-				//equal sign
 				doIt();
 				break;
 			case 13:
-			   //
 				doIt();
 				break;
-			default:
 			}
 
 		}
 
 
-})
+});
 
 
 function doIt(){
@@ -85,62 +113,47 @@ function doIt(){
 	} catch(e){
 		console.log(e);
 		if(e instanceof SyntaxError){
-			alert("ERROR!!! ERROR!!!");
+			alert("Error! Numbers are required");
 			return;
 		}else if ( e instanceof ReferenceError) {
-			alert("You have two operators in a row!");
+			alert("Error! You have two operators in a row.");
 			return;
 		}
 	}
-		console.log(total)
-
 	$('.screen').val(total);
 	console.log(total)
 	if(total == 42){
-		// $('#meaning').animate({left: '2000px'})
 		$('#meaning').addClass('move');
+	} else if (total == 666){
+		$('#evil').addClass('move-two');
+	} else if (total == 420){
+		$('#four-twenty').addClass('move-three');
+	} else if (total == 10101){
+		$('#wizard').addClass('move-four');
+	} else if (total == 360){
+		$('.row').addClass('move-five');
+	} else if (total == 9001){
+		$('#thug').addClass('move-six');
 	}
-}
+};
 
-
-// 	$(".numOne").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 1);
-//     });
-//     $(".numTwo").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 2);
-//     });
-//     $(".numThree").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 3);
-//     });
-//     $(".numFour").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 4);
-//     });
-//     $(".numFive").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 5);
-//     });
-//     $(".numSix").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 6);
-//     });
-//     $(".numSeven").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 7);
-//     });
-//     $(".numEight").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 8);
-//     });
-//     $(".numNine").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 9);
-// 	});
-// 	$(".numZero").click(function(){
-// 	var currScreenVal = $('.screen').val();	
-//     $('.screen').val(currScreenVal + 0);
-
-// });
+$('.operator, .number').click(function(){
+		if ($(this).hasClass('equal')){
+			doIt();
+		} 
+		else if($(this).hasClass('clear')){
+			$('#evil').removeClass('move-two');
+			$('#meaning').removeClass('move');
+			$('#four-twenty').removeClass('move-three');
+			$('#wizard').removeClass('move-four');
+			$('.row').removeClass('move-five');
+			$('#thug').removeClass('move-six');
+			$('.screen').val('');
+		}
+		 else {
+		var currScreenVal = $('.screen').val();
+		$('.screen').val(currScreenVal + $(this).val());
+	}
+		
+});
+	
