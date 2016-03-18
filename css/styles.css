@@ -123,6 +123,19 @@ body {
 	transition: all 2s ease-in-out;
 }
 
+#idk{
+	position: absolute;
+	left: -1000px;
+	top: 20%;
+}
+
+
+#idk.move-seven {
+	left: 2200px;
+	transition: all 5s ease;
+	transform: scale(2,2);
+}
+
 
 
 

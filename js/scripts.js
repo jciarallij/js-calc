@@ -89,6 +89,7 @@ $(document).ready(function(){
 			$('#wizard').removeClass('move-four');
 			$('.row').removeClass('move-five');
 			$('#thug').removeClass('move-six');
+			$('#idk').removeClass('move-seven');
 				break;
 			case 37:
 				deleteIt();
@@ -134,6 +135,8 @@ function doIt(){
 		$('.row').addClass('move-five');
 	} else if (total == 9001){
 		$('#thug').addClass('move-six');
+	} else if (total == 11111){
+		$('#idk').addClass('move-seven');
 	}
 };
 
@@ -148,6 +151,7 @@ $('.operator, .number').click(function(){
 			$('#wizard').removeClass('move-four');
 			$('.row').removeClass('move-five');
 			$('#thug').removeClass('move-six');
+			$('#idk').removeClass('move-seven');
 			$('.screen').val('');
 		}
 		 else {
