@@ -156,3 +156,13 @@ body {
 :placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
   color:    #000000;
 }
+
+.number.move-eight {
+	transform: rotate(3600deg);
+	transition: all 4s ease;
+}
+
+.operator.move-eight {
+	transform: rotate(3600deg);
+	transition: all 4s ease;
+}

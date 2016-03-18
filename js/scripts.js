@@ -16,6 +16,10 @@ $(document).ready(function(){
 			$('.screen').val('0.' + currScreenVal);
 		}else if($(this).hasClass('decimal') && currScreenVal == 0){
 			$('.screen').val('0.');
+		}else if($(this).attr('name') == 'multiply'){
+			$('.screen').val(currScreenVal + '*');
+		}else if($(this).attr('name') == 'divide'){
+			$('.screen').val(currScreenVal + '/');
 		}else{
 			$('.screen').val(currScreenVal + $(this).val());
 		};
@@ -90,6 +94,7 @@ $(document).ready(function(){
 			$('.row').removeClass('move-five');
 			$('#thug').removeClass('move-six');
 			$('#idk').removeClass('move-seven');
+			$('.number, .operator').removeClass('move-eight');
 				break;
 			case 37:
 				deleteIt();
@@ -137,6 +142,8 @@ function doIt(){
 		$('#thug').addClass('move-six');
 	} else if (total == 11111){
 		$('#idk').addClass('move-seven');
+	} else if (total == 101){
+		$('.number, .operator').addClass('move-eight');
 	}
 };
 
@@ -152,6 +159,7 @@ $('.operator, .number').click(function(){
 			$('.row').removeClass('move-five');
 			$('#thug').removeClass('move-six');
 			$('#idk').removeClass('move-seven');
+			$('.number, .operator').removeClass('move-eight');
 			$('.screen').val('');
 		}
 		 else {
